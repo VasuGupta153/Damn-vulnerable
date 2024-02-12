@@ -46,12 +46,14 @@ describe('[Challenge] Backdoor', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        Attackcontract = await((await ethers.getContractFactory('AttackerBackdoor',player)).deploy(walletRegistry.address,users));
+        // await Attackcontract.attack();
     });
 
     after(async function () {
         /** SUCCESS CONDITIONS - NO NEED TO CHANGE ANYTHING HERE */
 
-        // Player must have used a single transaction
+    //     // Player must have used a single transaction
         expect(await ethers.provider.getTransactionCount(player.address)).to.eq(1);
 
         for (let i = 0; i < users.length; i++) {

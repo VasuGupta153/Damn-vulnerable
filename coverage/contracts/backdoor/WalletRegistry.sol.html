@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/backdoor/WalletRegistry.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/backdoor/</a> WalletRegistry.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>27/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+&nbsp;
+import "solady/src/auth/Ownable.sol";
+import "solady/src/utils/SafeTransferLib.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@gnosis.pm/safe-contracts/contracts/GnosisSafe.sol";
+import "@gnosis.pm/safe-contracts/contracts/proxies/IProxyCreationCallback.sol";
+&nbsp;
+/**
+ * @title WalletRegistry
+ * @notice A registry for Gnosis Safe wallets.
+ *            When known beneficiaries deploy and register their wallets, the registry sends some Damn Valuable Tokens to the wallet.
+ * @dev The registry has embedded verifications to ensure only legitimate Gnosis Safe wallets are stored.
+ * @author Damn Vulnerable DeFi (https://damnvulnerabledefi.xyz)
+ */
+&nbsp;
+contract WalletRegistry is IProxyCreationCallback, Ownable {
+    uint256 private constant EXPECTED_OWNERS_COUNT = 1;
+    uint256 private constant EXPECTED_THRESHOLD = 1;
+    uint256 private constant PAYMENT_AMOUNT = 10 ether;
+&nbsp;
+    address public immutable masterCopy;
+    address public immutable walletFactory;
+    IERC20 public immutable token;
+&nbsp;
+    mapping(address =&gt; bool) public beneficiaries;
+&nbsp;
+    // owner =&gt; wallet
+    mapping(address =&gt; address) public wallets;
+&nbsp;
+    error NotEnoughFunds();
+    error CallerNotFactory();
+    error FakeMasterCopy();
+    error InvalidInitialization();
+    error InvalidThreshold(uint256 threshold);
+    error InvalidOwnersCount(uint256 count);
+    error OwnerIsNotABeneficiary();
+    error InvalidFallbackManager(address fallbackManager);
+&nbsp;
+    constructor(
+        address masterCopyAddress,
+        address walletFactoryAddress,
+        address tokenAddress,
+        address[] memory initialBeneficiaries
+    ) {
+        _initializeOwner(msg.sender);
+&nbsp;
+        masterCopy = masterCopyAddress;
+        walletFactory = walletFactoryAddress;
+        token = IERC20(tokenAddress);
+&nbsp;
+        for (uint256 i = 0; i &lt; initialBeneficiaries.length;) {
+            unchecked {
+                beneficiaries[initialBeneficiaries[i]] = true;
+                ++i;
+            }
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function addBeneficiary(address beneficiary) external <span class="missing-if-branch" title="if path not taken" >I</span>onlyOwner {</span>
+        beneficiaries[beneficiary] = true;
+    }
+&nbsp;
+    /**
+     * @notice Function executed when user creates a Gnosis Safe wallet via GnosisSafeProxyFactory::createProxyWithCallback
+     *          setting the registry's address as the callback.
+     */
+    function proxyCreated(GnosisSafeProxy proxy, address singleton, bytes calldata initializer, uint256)
+        external
+        override
+    {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (token.balanceOf(address(this)) &lt; PAYMENT_AMOUNT) { // fail early
+            revert NotEnoughFunds();
+        }
+&nbsp;
+        address payable walletAddress = payable(proxy);
+&nbsp;
+        // Ensure correct factory and master copy
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (msg.sender != walletFactory) {
+            revert CallerNotFactory();
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (singleton != masterCopy) {
+            revert FakeMasterCopy();
+        }
+&nbsp;
+        // Ensure initial calldata was a call to `GnosisSafe::setup`
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (bytes4(initializer[:4]) != GnosisSafe.setup.selector) {
+            revert InvalidInitialization();
+        }
+&nbsp;
+        // Ensure wallet initialization is the expected
+        uint256 threshold = GnosisSafe(walletAddress).getThreshold();
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (threshold != EXPECTED_THRESHOLD) {
+            revert InvalidThreshold(threshold);
+        }
+&nbsp;
+        address[] memory owners = GnosisSafe(walletAddress).getOwners();
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (owners.length != EXPECTED_OWNERS_COUNT) {
+            revert InvalidOwnersCount(owners.length);
+        }
+&nbsp;
+        // Ensure the owner is a registered beneficiary
+        address walletOwner;
+        unchecked {
+            walletOwner = owners[0];
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!beneficiaries[walletOwner]) {
+            revert OwnerIsNotABeneficiary();
+        }
+&nbsp;
+        address fallbackManager = _getFallbackManager(walletAddress);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (fallbackManager != address(0))
+            revert InvalidFallbackManager(fallbackManager);
+&nbsp;
+        // Remove owner as beneficiary
+        beneficiaries[walletOwner] = false;
+&nbsp;
+        // Register the wallet under the owner's address
+        wallets[walletOwner] = walletAddress;
+&nbsp;
+        // Pay tokens to the newly created wallet
+        SafeTransferLib.safeTransfer(address(token), walletAddress, PAYMENT_AMOUNT);
+    }
+&nbsp;
+    function _getFallbackManager(address payable wallet) private view returns (address) {
+        return abi.decode(
+            GnosisSafe(wallet).getStorageAt(
+                uint256(keccak256("fallback_manager.handler.address")),
+                0x20
+            ),
+            (address)
+        );
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 07 2024 15:51:03 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

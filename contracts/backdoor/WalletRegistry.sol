@@ -14,6 +14,7 @@ import "@gnosis.pm/safe-contracts/contracts/proxies/IProxyCreationCallback.sol";
  * @dev The registry has embedded verifications to ensure only legitimate Gnosis Safe wallets are stored.
  * @author Damn Vulnerable DeFi (https://damnvulnerabledefi.xyz)
  */
+
 contract WalletRegistry is IProxyCreationCallback, Ownable {
     uint256 private constant EXPECTED_OWNERS_COUNT = 1;
     uint256 private constant EXPECTED_THRESHOLD = 1;

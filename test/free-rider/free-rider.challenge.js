@@ -1,4 +1,5 @@
 // Get compiled Uniswap v2 data
+
 const pairJson = require("@uniswap/v2-core/build/UniswapV2Pair.json");
 const factoryJson = require("@uniswap/v2-core/build/UniswapV2Factory.json");
 const routerJson = require("@uniswap/v2-periphery/build/UniswapV2Router02.json");
@@ -106,6 +107,15 @@ describe('[Challenge] Free Rider', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        AttackerFactor = await ethers.getContractFactory('AttackerFreeRider',player);
+        AttackContract = await AttackerFactor.deploy(
+            marketplace.address,
+            devsContract.address,
+            uniswapPair.address,
+            weth.address,
+            nft.address
+        )
+        await AttackContract.attack({value: ethers.utils.parseEther("0.05")});
     });
 
     after(async function () {

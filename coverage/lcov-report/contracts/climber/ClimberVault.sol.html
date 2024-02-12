@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/climber/ClimberVault.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/climber/</a> ClimberVault.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+&nbsp;
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "solady/src/utils/SafeTransferLib.sol";
+&nbsp;
+import "./ClimberTimelock.sol";
+import {WITHDRAWAL_LIMIT, WAITING_PERIOD} from "./ClimberConstants.sol";
+import {CallerNotSweeper, InvalidWithdrawalAmount, InvalidWithdrawalTime} from "./ClimberErrors.sol";
+&nbsp;
+/**
+ * @title ClimberVault
+ * @dev To be deployed behind a proxy following the UUPS pattern. Upgrades are to be triggered by the owner.
+ * @author Damn Vulnerable DeFi (https://damnvulnerabledefi.xyz)
+ */
+contract ClimberVault is Initializable, OwnableUpgradeable, UUPSUpgradeable {
+    uint256 private _lastWithdrawalTimestamp;
+    address private _sweeper;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    modifier onlySweeper() {</span>
+<span class="cstat-no" title="statement not covered" >        if (msg.sender != _sweeper) {</span>
+            revert CallerNotSweeper();
+        }
+        _;
+    }
+&nbsp;
+    /// @custom:oz-upgrades-unsafe-allow constructor
+<span class="fstat-no" title="function not covered" >    constructor() {</span>
+<span class="cstat-no" title="statement not covered" >        _disableInitializers()</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function initialize(address admin, address proposer, address sweeper) external initializer {</span>
+        // Initialize inheritance chain
+<span class="cstat-no" title="statement not covered" >        __Ownable_init()</span>;
+<span class="cstat-no" title="statement not covered" >        __UUPSUpgradeable_init()</span>;
+&nbsp;
+        // Deploy timelock and transfer ownership to it
+<span class="cstat-no" title="statement not covered" >        transferOwnership(address(new ClimberTimelock(admin, proposer)))</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _setSweeper(sweeper)</span>;
+<span class="cstat-no" title="statement not covered" >        _updateLastWithdrawalTimestamp(block.timestamp)</span>;
+    }
+&nbsp;
+    // Allows the owner to send a limited amount of tokens to a recipient every now and then
+<span class="fstat-no" title="function not covered" >    function withdraw(address token, address recipient, uint256 amount) external onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >        if (amount &gt; WITHDRAWAL_LIMIT) {</span>
+            revert InvalidWithdrawalAmount();
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (block.timestamp &lt;= _lastWithdrawalTimestamp + WAITING_PERIOD) {</span>
+            revert InvalidWithdrawalTime();
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _updateLastWithdrawalTimestamp(block.timestamp)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        SafeTransferLib.safeTransfer(token, recipient, amount)</span>;
+    }
+&nbsp;
+    // Allows trusted sweeper account to retrieve any tokens
+<span class="fstat-no" title="function not covered" >    function sweepFunds(address token) external onlySweeper {</span>
+<span class="cstat-no" title="statement not covered" >        SafeTransferLib.safeTransfer(token, _sweeper, IERC20(token).balanceOf(address(this)))</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getSweeper() external view returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        return _sweeper;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _setSweeper(address newSweeper) private {</span>
+        _sweeper = newSweeper;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getLastWithdrawalTimestamp() external view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return _lastWithdrawalTimestamp;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _updateLastWithdrawalTimestamp(uint256 timestamp) private {</span>
+        _lastWithdrawalTimestamp = timestamp;
+    }
+&nbsp;
+    // By marking this internal function with `onlyOwner`, we only allow the owner account to authorize an upgrade
+<span class="fstat-no" title="function not covered" >    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 07 2024 15:51:03 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
